@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DbAnkaraPortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblAdmin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="TblContact">
           <Key>
             <PropertyRef Name="ContactID" />
@@ -15,6 +23,27 @@
           <Property Name="Message" Type="varchar(max)" />
           <Property Name="Date" Type="date" />
         </EntityType>
+        <EntityType Name="TblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeSurname" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeMail" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeePassword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblMessage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SenderMessage" Type="varchar" MaxLength="50" />
+          <Property Name="ReceiverMessage" Type="varchar" MaxLength="50" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" />
+          <Property Name="MessageBody" Type="varchar" MaxLength="500" />
+          <Property Name="MessageDate" Type="date" />
+        </EntityType>
         <EntityType Name="TblSkill">
           <Key>
             <PropertyRef Name="SkillID" />
@@ -23,8 +52,6 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Value" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DbAnkaraPortfolio.dbo.TblTestimonial' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TblTestimonial">
           <Key>
             <PropertyRef Name="TestimonialID" />
@@ -36,23 +63,26 @@ warning 6002: The table/view 'DbAnkaraPortfolio.dbo.TblTestimonial' does not hav
           <Property Name="ImageURL" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="DbAnkaraPortfolioModelStoreContainer">
+          <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblContact" EntityType="Self.TblContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployee" EntityType="Self.TblEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMessage" EntityType="Self.TblMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblSkill" EntityType="Self.TblSkill" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TblTestimonial].[TestimonialID] AS [TestimonialID], 
-    [TblTestimonial].[Name] AS [Name], 
-    [TblTestimonial].[Title] AS [Title], 
-    [TblTestimonial].[Comment] AS [Comment], 
-    [TblTestimonial].[ImageURL] AS [ImageURL]
-    FROM [dbo].[TblTestimonial] AS [TblTestimonial]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbAnkaraPortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblAdmin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="TblContact">
           <Key>
             <PropertyRef Name="ContactID" />
@@ -62,6 +92,27 @@ warning 6002: The table/view 'DbAnkaraPortfolio.dbo.TblTestimonial' does not hav
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeePassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblMessage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiverMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MessageBody" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MessageDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="TblSkill">
           <Key>
@@ -82,7 +133,10 @@ warning 6002: The table/view 'DbAnkaraPortfolio.dbo.TblTestimonial' does not hav
           <Property Name="ImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="DbAnkaraPortfolioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" />
           <EntitySet Name="TblContact" EntityType="Self.TblContact" />
+          <EntitySet Name="TblEmployee" EntityType="Self.TblEmployee" />
+          <EntitySet Name="TblMessage" EntityType="Self.TblMessage" />
           <EntitySet Name="TblSkill" EntityType="Self.TblSkill" />
           <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" />
         </EntityContainer>
@@ -92,6 +146,15 @@ warning 6002: The table/view 'DbAnkaraPortfolio.dbo.TblTestimonial' does not hav
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DbAnkaraPortfolioModelStoreContainer" CdmEntityContainer="DbAnkaraPortfolioEntities">
+          <EntitySetMapping Name="TblAdmin">
+            <EntityTypeMapping TypeName="DbAnkaraPortfolioModel.TblAdmin">
+              <MappingFragment StoreEntitySet="TblAdmin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblContact">
             <EntityTypeMapping TypeName="DbAnkaraPortfolioModel.TblContact">
               <MappingFragment StoreEntitySet="TblContact">
@@ -100,6 +163,29 @@ warning 6002: The table/view 'DbAnkaraPortfolio.dbo.TblTestimonial' does not hav
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="Message" ColumnName="Message" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployee">
+            <EntityTypeMapping TypeName="DbAnkaraPortfolioModel.TblEmployee">
+              <MappingFragment StoreEntitySet="TblEmployee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
+                <ScalarProperty Name="EmployeeMail" ColumnName="EmployeeMail" />
+                <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMessage">
+            <EntityTypeMapping TypeName="DbAnkaraPortfolioModel.TblMessage">
+              <MappingFragment StoreEntitySet="TblMessage">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="SenderMessage" ColumnName="SenderMessage" />
+                <ScalarProperty Name="ReceiverMessage" ColumnName="ReceiverMessage" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

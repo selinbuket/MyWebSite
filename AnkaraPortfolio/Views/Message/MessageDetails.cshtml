@@ -1,0 +1,35 @@
+﻿@model  AnkaraPortfolio.Models.TblMessage
+
+@{
+    ViewBag.Title = "ProfileGet";
+    Layout = null;
+}
+<div style="text-align:center; border:solid #333;">
+    <h2>Mesaj</h2>
+</div>
+<br />
+<br />
+<div style="text-align:left; border:solid #333;">
+    <br />
+
+    <label> Mesajı Gönderen: </label>
+    <input type="text" readonly class="form-control" value=" @Model.SenderMessage" />
+    <br />
+    <br />
+    <label> Mesajı Alan: </label>
+    <input type="text" readonly class="form-control" value=" @Model.ReceiverMessage " />
+    <br />
+    <br />
+    <label> Mesaj Tarihi: </label>
+    <input type="text" readonly class="form-control" value=" @Model.MessageDate" />
+    <br />
+    <br />
+    <label> Mesaj : </label>
+    <input type="text" readonly class="form-control" value=" @Model.MessageBody" />
+    <br />
+    <br />
+
+
+    <br />
+
+</div>

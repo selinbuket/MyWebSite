@@ -12,6 +12,7 @@ namespace AnkaraPortfolio.Controllers
         public ActionResult Contact()
         {
             return View();
+            ///buket
         }
     }
 }

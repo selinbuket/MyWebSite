@@ -4,10 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8fbfc5ccf6714087b9f116f4edc86c8b" Name="Diagram1">
-        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblContact" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblSkill" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblTestimonial" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+      <Diagram DiagramId="28d7bfa2930e49e8a8e9b68c6d23bbd6" Name="Diagram1">
+        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblAdmin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblContact" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblEmployee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblMessage" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblSkill" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAnkaraPortfolioModel.TblTestimonial" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

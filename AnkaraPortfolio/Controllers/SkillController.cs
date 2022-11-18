@@ -24,6 +24,8 @@ namespace AnkaraPortfolio.Controllers
 
         DbAnkaraPortfolioEntities db = new DbAnkaraPortfolioEntities();
 
+        [Authorize]
+
         public ActionResult SkillList()
         {
             var values = db.TblSkill.ToList();

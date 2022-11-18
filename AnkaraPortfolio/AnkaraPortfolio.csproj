@@ -243,6 +243,7 @@
     <Content Include="Template\my_website-starter\my_website-starter\index.html" />
     <Content Include="Template\my_website-starter\my_website-starter\services.html" />
     <Content Include="Template\my_website-starter\my_website-starter\starter-license-W3Layouts.txt" />
+    <Content Include="README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
